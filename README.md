@@ -1,6 +1,16 @@
-# micro-ROS Setup on Ubuntu 22.04 (ROS 2 Humble)
+# micro-ROS Setup inside Docker Container (ROS 2 Humble)
+
+## Prerequisites
+- Docker installed
+- ROS 2 Humble container running
 
 ## Installation Steps
+
+### Step 0: Enter the Docker Container
+Get inside the running container before running any commands.
+```bash
+docker exec -it <container_name> bash
+```
 
 ### Step 1: Source ROS 2 Environment
 Load the ROS 2 environment variables into the current shell session.
@@ -58,7 +68,7 @@ source install/local_setup.bash
 
 ---
 
-> ⚠️ **Note:** `source` commands apply only to the current terminal session. To make them permanent, add them to your `~/.bashrc`:
+> ⚠️ **Note:** Sourcing is lost every time you exit the container. To make it permanent inside the container:
 > ```bash
 > echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 > echo "source ~/microros_ws/install/local_setup.bash" >> ~/.bashrc
